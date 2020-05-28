@@ -4,14 +4,16 @@ body{
 }
 
 .main-section{
-    margin:0 auto;
+    margin-left:10%;
     margin-top:5%;
 }
 .card{
-	opacity: .95;
+    opacity: .80;
+    background-color: #a6b7b8;
+    border-radius: 20px 20px;
 }
 .card-body{
-    background-color: #d1d3d6;
+    background-color: #59979c;
     box-shadow: 0px 0px 3px #848484;
 }
 
@@ -24,5 +26,17 @@ label{
 }
 
 .nav-tabs{
-	border-bottom:0px;
+	border-bottom:10px;
 }
+#roles{
+    margin-left: 20px;
+}
+.form-control{
+   
+    padding: 10px;
+}
+
+.form{
+    padding: 20px;
+}
+

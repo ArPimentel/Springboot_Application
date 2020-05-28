@@ -13,45 +13,45 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 public class Roles implements Serializable {
 
-     private static final long serialVersionUID = -8333583900928060205L;
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO, generator ="native")
-    @GenericGenerator(name="native", strategy ="native")
-    private Long id;
+	private static final long serialVersionUID = -8333583900928060205L;
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO, generator ="native")
+	@GenericGenerator(name="native", strategy ="native")
+	private Long id;
 
-    @Column
-    private String name;
+	@Column
+	private String name;
 
-    @Column
-    private String description;
+	@Column
+	private String description;
 
-    public Long getId() {
-        return id;
-    }
+	public Long getId() {
+		return id;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setId(Long id) {
+		this.id = id;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setDescription(String description) {
+		this.description = description;
+	}
 
- 
 
-    @Override
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
@@ -89,11 +89,11 @@ public class Roles implements Serializable {
 	}
 
 	@Override
-    public String toString() {
-        return "Roles{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                '}';
-    }
+	public String toString() {
+		return "Roles{" +
+				"id=" + id +
+				", name='" + name + '\'' +
+				", description='" + description + '\'' +
+				'}';
+	}
 }

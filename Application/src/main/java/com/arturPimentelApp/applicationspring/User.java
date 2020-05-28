@@ -1,6 +1,8 @@
 package com.arturPimentelApp.applicationspring;
 import org.hibernate.annotations.GenericGenerator;
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.util.Set;
 
@@ -14,29 +16,34 @@ public class User implements Serializable {
     private Long id;
 
     @Column
+    @NotBlank
+    @Size(min=5, max=8, message= "La taille ne répond pas aux exigences.")
     private String firstName;
 
     @Column
+    @NotBlank
     private String lastName;
 
-    @Column(unique = true)
+    @Column/*(unique = true)*/
+    @NotBlank
     private String email;
 
-    @Column(unique = true)
+    @Column/*(unique = true)*/
+    @NotBlank
     private String username;
 
     @Column
+    @NotBlank
     private String password;
 
     @Transient
+    @NotBlank
     private String confirmPassword;
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(name = "user_roles",
     joinColumns =@JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name="role_id"))
-
-    
+            inverseJoinColumns = @JoinColumn(name="role_id"))  
     private Set<Roles> roles;
 
     
