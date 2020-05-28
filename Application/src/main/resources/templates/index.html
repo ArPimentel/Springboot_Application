@@ -37,20 +37,20 @@
                             <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Ingresar </button>
                         </form>
                         <div class="col-12 forgot">
-                            <a href="#">Recordar contrasena?</a>
+                            <a href="#">Mot de pass oublié?</a>
                         </div>
                         <div th:if="${param.error}" class="alert alert-danger" role="alert">
-                            Invalid username and password.
+                            Le pseudo et mot de passe ne correspondent pas.
                         </div>
                         <div th:if="${param.logout}" class="alert alert-success" role="alert">
-                            You have been logged out.
+                            Vous avez été déconnecté.
                         </div>
                     </div>
                 </div>
             </div>
             <footer>
             <div class="card-footer text-muted" id="footer">
-                Application cée pour
+                Application crée pour
                 <p><em>Arturo PIMENTEL</em></br>
                 © 2020 - 2021</p>
                 
