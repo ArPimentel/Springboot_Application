@@ -9,6 +9,7 @@ import com.arturPimentelApp.applicationspring.repository.UserRepository;
 @Service
 public class UserServiceImpl implements UserService {
 
+	
 	@Autowired
 	UserRepository repository;
 
@@ -46,7 +47,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override 
 	public User getUserById(Long id) throws Exception {
-		return repository.findById(id).orElseThrow(() -> new Exception("L'utilisateur à editer il n'est existe pas "));
+		return repository.findById(id).orElseThrow(() -> new Exception("L'utilisateur n'est existe pas "));
 	}
 
 	@Override 
@@ -61,7 +62,11 @@ public class UserServiceImpl implements UserService {
 		to.setFirstName(from.getFirstName());
 		to.setLastName(from.getLastName());
 		to.setEmail(from.getEmail());
-		to.setRoles(from.getRoles());
-		to.setPassword(from.getPassword());	
+		to.setRoles(from.getRoles());	
+	}
+	@Override
+	public void deleteUser(Long id) throws Exception{
+		User user = getUserById(id);
+		repository.delete(user);
 	}
 }
