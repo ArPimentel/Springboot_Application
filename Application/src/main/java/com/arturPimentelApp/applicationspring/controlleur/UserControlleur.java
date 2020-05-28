@@ -1,6 +1,5 @@
 package com.arturPimentelApp.applicationspring.controlleur;
 
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -102,8 +101,19 @@ public class UserControlleur {
 		model.addAttribute("roles", roleRepository.findAll());
 		return "user-form/user-view";
 	}
-	@GetMapping("/editUser/cancel")
+	@GetMapping("/userForm/cancel")
 	public String cancelEditUser(ModelMap model) {
 		return "redirect: /userForm";
 	}
+
+	@GetMapping("/deleteUser/{id}")
+	public String deleteUser(Model model, @PathVariable(name="id")Long id) {
+		try {
+			userService.deleteUser(id);
+		} catch (Exception e) {
+			model.addAttribute("listErrorMessage", e.getMessage());		
+		}
+		return userForm(model);
+	}
 }
+

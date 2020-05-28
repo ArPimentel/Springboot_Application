@@ -1,28 +1,42 @@
-<div class="table-responsive">
-	<table id="userList"
-		class="table table-bordered table-hover table-striped">
-		<thead class="thead-light">
-			<tr>
-				<th scope="col">#</th>
-				<th scope="col">Prenom</th>
-				<th scope="col">Nom</th>
-				<th scope="col">Pseudo</th>
-				<th scope="col">E-mail</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="user:${userList}">
-				<td th:text="${user.id}"></td>
-				<td th:text="${user.firstName}"></td>
-				<td th:text="${user.lastName}"></td>
-				<td th:text="${user.username}"></td>
-				<td th:text="${user.email}"></td>
-				<td><a href="#" th:href="@{'/editUser/'+${user.id}}"><i
-						class="fas fa-edit"></i></a> | <a href="#"
-					th:onclick="'javascript:confirmDelete(\''+${user.id}+'\');'"><i
-						class="fas fa-user-times"></i></a></td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+		<div class="table-responsive">
+			<table id="userList"
+				class="table table-bordered table-hover table-striped">
+				<thead class="thead-light">
+					<tr>
+						<th scope="col">#</th>
+						<th scope="col">Prenom</th>
+						<th scope="col">Nom</th>
+						<th scope="col">Pseudo</th>
+						<th scope="col">E-mail</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user:${userList}">
+						<td th:text="${user.id}"></td>
+						<td th:text="${user.firstName}"></td>
+						<td th:text="${user.lastName}"></td>
+						<td th:text="${user.username}"></td>
+						<td th:text="${user.email}"></td>
+						<td><a href="#" th:href="@{'/editUser/'+${user.id}}"><i
+								class="fas fa-edit"></i></a> | <a href="#"
+							th:onclick="'javascript:confirmDelete(\''+${user.id}+'\');'"><i
+								class="fas fa-user-times"></i></a>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="alert alert-danger text-center" th:if="${listErrorMessage}"
+					th:text="${listErrorMessage}">Error Message</div>
+		</div>
+		<script type="text/javascript">
+	function confirmDelete(id){
+		$('#deleteModal').modal('show');
+		$("#userIdHiddenInput").val(id);
+	}
+
+	function deleteUser(){
+		var id = $("#userIdHiddenInput").val();
+		window.location = "deleteUser/"+id;
+	}
+	</script>
