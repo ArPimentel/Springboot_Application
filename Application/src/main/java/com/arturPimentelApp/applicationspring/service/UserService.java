@@ -1,6 +1,7 @@
 package com.arturPimentelApp.applicationspring.service;
 
 import com.arturPimentelApp.applicationspring.User;
+import com.arturPimentelApp.applicationspring.dto.ChangePassword;
 
 public interface UserService {
 	
@@ -14,5 +15,6 @@ public interface UserService {
 
 	public void deleteUser(Long id) throws Exception;
 
+	public User changePassword(ChangePassword form) throws Exception;
 
 }

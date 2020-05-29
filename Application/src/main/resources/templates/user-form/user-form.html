@@ -1,3 +1,9 @@
+	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<title>Formulario</title>
+				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</head>
 	<form class="form table-responsive" role="form" autocomplete="off" 
 		th:object="${userForm}" th:action="${editMode} ?@{/editUser} :@{/userForm}" method="post">
 	<input class= "form-control" type="hidden" th:field="${userForm.id}" th:if="${editMode}">
@@ -52,7 +58,7 @@
 			</div>
 		</div>
 		<div class="form-group row" th:if="${editMode ==null or editMode==false}">
-			<label class="col-lg-6 col-form-label form-control-label">Mot de pass</label>
+			<label class="col-lg-6 col-form-label form-control-label">Mot de passe</label>
 			<div class="col-lg-4">
 				<input class="form-control" type="password"
 					th:field="${userForm.password}">
@@ -73,9 +79,12 @@
 		<div class="form-group row">
 			<div class="col-lg-10 text-center">
 				<a class="btn btn-secondary" th:href="@{'/userForm/cancel'}">Annuler</a>
-				<input type="submit" class="btn btn-primary" value="Save Changes" th:value="${editMode}?'Mettre jour ' : 'Ajouter un utilisateur'">
+				<button type="button" class="btn btn-secondary" data-toggle="modal" th:if="${editMode}" data-target="#changePasswordModal">Changer le mot de passe</button>
+				<input type="submit" class="btn btn-primary" value="Save Changes" th:value="${editMode}?'Mettre à jour ' : 'Ajouter un utilisateur'">
 			</div>
 		</div>
 		<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
 			th:text="${formErrorMessage}">Error Message</div>
+		<div class="alert alert-success text-center d-none" id="formSuccess" th:if="${esditMode}">Success Message</div>
 	</form>
+	</html>
