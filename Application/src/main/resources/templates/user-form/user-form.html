@@ -4,6 +4,8 @@
 		<title>Formulario</title>
 				<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 	</head>
+	<div th:with="disableFields=!${editMode} and ${#authorization.expression('hasRole(''ROLE_USER'')')}">
+
 	<form class="form table-responsive" role="form" autocomplete="off" 
 		th:object="${userForm}" th:action="${editMode} ?@{/editUser} :@{/userForm}" method="post">
 	<input class= "form-control" type="hidden" th:field="${userForm.id}" th:if="${editMode}">
@@ -14,7 +16,7 @@
 			<label class="col-lg-4 col-form-label form-control-label">Prenom</label>
 			<div class="col-lg-6">
 				<input class="form-control" type="text"
-					th:field="${userForm.firstName}">
+					th:field="${userForm.firstName}" th:disable="${disableFields}">
 				<div class="alert-danger" th:if="${#fields.hasErrors('firstName')}"
 					th:errors="*{firstName}">Name Error</div>
 			</div>
@@ -23,7 +25,7 @@
 			<label class="col-lg-4 col-form-label form-control-label">Nom</label>
 			<div class="col-lg-6">
 				<input class="form-control" type="text"
-					th:field="${userForm.lastName}">
+					th:field="${userForm.lastName}" th:disable="${disableFields}">
 				<div class="alert-danger" th:if="${#fields.hasErrors('lastName')}"
 					th:errors="*{lastName}">Name Error</div>
 			</div>
@@ -31,7 +33,7 @@
 		<div class="form-group row">
 			<label class="col-lg-4 col-form-label form-control-label">Email</label>
 			<div class="col-lg-6">
-				<input class="form-control" type="email" th:field="${userForm.email}">
+				<input class="form-control" type="email" th:field="${userForm.email}" th:disable="${disableFields}">
 				<div class="alert-danger" th:if="${#fields.hasErrors('email')}"
 					th:errors="*{email}">Name Error</div>
 			</div>
@@ -40,7 +42,7 @@
 			<label class="col-lg-4 col-form-label form-control-label">Pseudo</label>
 			<div class="col-lg-6">
 				<input class="form-control" type="text"
-					th:field="${userForm.username}">
+					th:field="${userForm.username}" th:disable="${disableFields}">
 				<div class="alert-danger" th:if="${#fields.hasErrors('username')}"
 					th:errors="*{username}">Name Error</div>
 			</div>
@@ -48,7 +50,7 @@
 				<label th:text="  Roles"
 					class="col-lg-8 col-form-label form-control-label" ></label>
 				<div class="col-lg-12">
-					<select class="form-control" size="3" th:field="${userForm.roles}">
+					<select class="form-control" size="3" th:field="${userForm.roles}" th:disable="${disableFields}">
 						<option th:each="roles :${roles}" th:value="${roles.id}"
 							th:text="${roles.name}"></option>
 					</select>
@@ -61,7 +63,7 @@
 			<label class="col-lg-6 col-form-label form-control-label">Mot de passe</label>
 			<div class="col-lg-4">
 				<input class="form-control" type="password"
-					th:field="${userForm.password}">
+					th:field="${userForm.password}" th:disable="${disableFields}">
 				<div class="alert-danger" th:if="${#fields.hasErrors('password')}"
 					th:errors="*{password}">Name Error</div>
 			</div>
@@ -70,7 +72,7 @@
 			<label class="col-lg-6 col-form-label form-control-label">Confirmation</label>
 			<div class="col-lg-4">
 				<input class="form-control" type="password"
-					th:field="${userForm.confirmPassword}">
+					th:field="${userForm.confirmPassword}" th:disable="${disableFields}">
 				<div class="alert-danger"
 					th:if="${#fields.hasErrors('confirmPassword')}"
 					th:errors="*{confirmPassword}">Name Error</div>
@@ -80,11 +82,12 @@
 			<div class="col-lg-10 text-center">
 				<a class="btn btn-secondary" th:href="@{'/userForm/cancel'}">Annuler</a>
 				<button type="button" class="btn btn-secondary" data-toggle="modal" th:if="${editMode}" data-target="#changePasswordModal">Changer le mot de passe</button>
-				<input type="submit" class="btn btn-primary" value="Save Changes" th:value="${editMode}?'Mettre à jour ' : 'Ajouter un utilisateur'">
+				<input type="submit" class="btn btn-primary" value="Save Changes" th:value="${editMode}?'Mettre ï¿½ jour ' : 'Ajouter un utilisateur'">
 			</div>
 		</div>
 		<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
 			th:text="${formErrorMessage}">Error Message</div>
 		<div class="alert alert-success text-center d-none" id="formSuccess" th:if="${esditMode}">Success Message</div>
 	</form>
+	</div>
 	</html>

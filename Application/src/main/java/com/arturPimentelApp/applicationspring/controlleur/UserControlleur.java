@@ -30,7 +30,7 @@ public class UserControlleur {
 	@Autowired
 	RoleRepository roleRepository;
 
-	@GetMapping("/")
+	@GetMapping({"/","/login"})
 	public String index() {
 		return "index";
 	}
@@ -143,6 +143,16 @@ public class UserControlleur {
 			return ResponseEntity.badRequest().body(e.getMessage());
 		}
 		return ResponseEntity.ok("success");
+	}
+
+	@GetMapping("/deleteUser/{id}")
+	public String deleteUser(Model model, @PathVariable(name="id")Long id) {
+		try {
+			userService.deleteUser(id);
+		} catch (Exception e) {
+			model.addAttribute("listErrorMessage", e.getMessage());		
+		}
+		return userForm(model);
 	}
 }
 
