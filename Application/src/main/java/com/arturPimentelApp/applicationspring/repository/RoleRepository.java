@@ -6,5 +6,5 @@ import com.arturPimentelApp.applicationspring.Roles;
 @Repository
 public interface RoleRepository extends CrudRepository <Roles, Long>{
 
-
+	public Roles findByName(String roles);
 }

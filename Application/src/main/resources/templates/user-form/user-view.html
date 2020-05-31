@@ -1,7 +1,7 @@
 			<!DOCTYPE html>
 			<html lang="en" xmlns:th="http://www.thymeleaf.org">
 					<head>
-					<title>Info d'utilisateur et forme</title>
+					<title>Info d'utilisateur et formulaire</title>
 
 					<!--JQUERY-->
 					<script
@@ -47,9 +47,9 @@
 										aria-selected="false">Liste</a></li>
 									<li class="nav-item"><a class="nav-link" th:classappend=" ${formTab}" id="form-tab"
 										data-toggle="tab" href="#form" role="tab" aria-controls="form"
-										aria-selected="true">Forme</a></li>
+										aria-selected="true">Formulaire</a></li>
 										<li class="nav-item">
-											<a class="nav-link" href="#" th:href="@{/logout}"><span th:text="${#authentication.getPrincipal().getUsername()}"></span> - <span>Desconnexion  </span><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>				   	
+											<a class="nav-link" href="#" th:href="@{/logout}"><span th:text="${#authentication.getPrincipal().getUsername()}"></span> - <span>Se deconnecter  </span><span class="float-right"><i class="fas fa-sign-out-alt"></i></span></a>				   	
 									</li>
 								</ul>
 								<div class="tab-content" id="myTabContent">
@@ -67,7 +67,7 @@
 										aria-labelledby="form-tab">
 										<div class="card">
 											<div class="card-header">
-												<h4>Comptes des utilisateurs</h4>
+												<h4>Informations d'utilisateur</h4>
 											</div>
 											<div class="card-body"></div>
 											<div th:include="user-form/user-form.html" th:remove="tag"></div>
