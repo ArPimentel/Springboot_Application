@@ -42,6 +42,4 @@ public class ChangePassword {
 	public void setConfirmPassword(String confirmPassword) {
 		this.confirmPassword = confirmPassword;
 	}
-
-
 }

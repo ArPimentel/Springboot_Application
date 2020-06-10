@@ -17,5 +17,6 @@ public interface UserService {
 	public void deleteUser(Long id) throws UsernameOrIdNotFound;
 
 	public User changePassword(ChangePassword form) throws Exception;
-
+	
+	/*public User envoiPasswordUser(EnvoiPasswordUser form) throws Exception;*/
 }

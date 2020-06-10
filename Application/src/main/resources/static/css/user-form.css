@@ -6,25 +6,33 @@ body{
 .main-section{
     margin-left:10%;
     margin-top:5%;
+   
+}
+font{
+   scrollbar-base-color: blue;
 }
 .card{
     opacity: .80;
-    background-color: #a6b7b8;
-     border: 3px solid #000000;
+  
+     border: 5px solid #000000;
      border-radius:20px;
+     background-color: black;
 }
 
-.card-body{
-    background-color: #59979c;
-    box-shadow: 0px 0px 3px #848484;
+.card-header{
+    background-color: black;
+    border: 5px #c9c9c9;
+
 }
 
 label{
-	font-weight: bold;
+    font-weight: bold;
+     
 }
 
 .nav-tabs .nav-item a:not(.active){
-	background-color: #d1d3d6;
+    background-color: #d1d3d6;
+    
 }
 
 .nav-tabs{
@@ -34,11 +42,69 @@ label{
     margin-left: 20px;
 }
 .form-control{
-    padding: 10px;
+   
+    padding: 30px;
 }
-
-
+.table-responsive{
+ 
+ background-color:  #bacccc;
+}
 .form{
-    padding: 20px;
+    background-color: #bacccc;
+    padding: 30px;
+   
 }
+#roles{
+    cursor: pointer;
+}
+
+
+.btn.btn-primary {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    border-bottom: dotted 1px;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: inset 0px 10px 5px 10px aqua 0px 10px 5px 10px black;
+    border-radius: 10px;
+}
+
+.btn.btn-primary:hover {
+    border-bottom-color: transparent;
+    transition: 0.5s ease;
+    color: mediumaquamarine;
+    background-color: blue;
+}
+
+
+
+.btn.btn-secondary {
+    -moz-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -webkit-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    -ms-transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out, border-bottom-color 0.2s ease-in-out;
+    border-bottom: dotted 1px;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: inset 0px 10px 5px 10px aqua 0px 10px 5px 10px black;
+    border-radius: 10px;
+}
+
+.btn.btn-secondary:hover {
+    border-bottom-color: transparent;
+    transition: 0.5s ease;
+    color: mediumaquamarine;
+    background-color: #c9c9c9;
+}
+
+.color-fondo{
+    background-color: orange;
+    border: 5px orange;
+    border-radius:0px 0px 30px 30px
+}
+
+
+
 

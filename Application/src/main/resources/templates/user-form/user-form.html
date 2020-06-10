@@ -1,4 +1,4 @@
-<div th:with="disableFields=!${editMode} and ${#authorization.expression('hasRole(''ROLE_USER'')')}">
+<div th:with="disableFields=!${editMode} and ${#authorization.expression('hasRole(''ROLE_USER'')')}" class="color-fondo">
 
 <form class="form" role="form" autocomplete="off"  th:object="${userForm}" th:action="${signup}?@{/signup}:(${editMode} ?@{/editUser} :@{/userForm})" method="post">
 	<!--Es necesario para poder pasar la validacion del Model-->
@@ -73,5 +73,6 @@
 	</div>
 	<div class="alert alert-danger text-center" th:if="${formErrorMessage}" th:text="${formErrorMessage}">Error Message</div>
 	<div class="alert alert-success text-center d-none" id="formSuccess" th:if="${editMode}" >Success Message</div>
+	
 </form>
 </div>

@@ -7,9 +7,6 @@ public class CustomeFieldValidationException extends Exception{
 	 * 
 	 */
 	private static final long serialVersionUID = -4679966307323158365L;
-	/**
-	 * 
-	 */
 	
 	private String fieldName;
 	

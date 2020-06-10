@@ -3,7 +3,6 @@ package com.arturPimentelApp.applicationspring.controlleur;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-
 import com.arturPimentelApp.applicationspring.Roles;
 import com.arturPimentelApp.applicationspring.User;
 import com.arturPimentelApp.applicationspring.Exception.CustomeFieldValidationException;
@@ -31,6 +29,7 @@ import com.arturPimentelApp.applicationspring.service.UserService;
 public class UserControlleur {
 	private final String TAB_FORM = "formTab";
 	private final String TAB_LIST = "listTab";
+	
 	
 	@Autowired
 	UserService userService;
@@ -54,6 +53,7 @@ public class UserControlleur {
 		return "user-form/user-signup";
 	}
 	
+	
 	@PostMapping("/signup")
 	public String signupAction(@Valid @ModelAttribute("userForm")User user, BindingResult result, ModelMap model) {
 		Roles userRole = roleRepository.findByName("UTILISATEUR");
@@ -76,6 +76,7 @@ public class UserControlleur {
 		return index();
 	}
 	
+	
 	private void baseAttributerForUserForm(Model model, User user,String activeTab) {
 		model.addAttribute("userForm", user);
 		model.addAttribute("userList", userService.getAllUsers());
@@ -83,11 +84,13 @@ public class UserControlleur {
 		model.addAttribute(activeTab,"active");
 	}
 	
+	
 	@GetMapping("/userForm")
 	public String userForm(Model model) {
 		baseAttributerForUserForm(model, new User(), TAB_LIST );
 		return "user-form/user-view";
 	}
+	
 	
 	@PostMapping("/userForm")
 	public String createUser(@Valid @ModelAttribute("userForm")User user, BindingResult result, Model model) {
@@ -109,16 +112,16 @@ public class UserControlleur {
 		return "user-form/user-view";
 	}
 	
+	
 	@GetMapping("/editUser/{id}")
 	public String getEditUserForm(Model model, @PathVariable(name ="id")Long id)throws Exception{
 		User userToEdit = userService.getUserById(id);
-
 		baseAttributerForUserForm(model, userToEdit, TAB_FORM );
 		model.addAttribute("editMode","true");
 		model.addAttribute("passwordForm",new ChangePassword(id));
-		
 		return "user-form/user-view";
 	}
+	
 	
 	@PostMapping("/editUser")
 	public String postEditUserForm(@Valid @ModelAttribute("userForm")User user, BindingResult result, Model model) {
@@ -139,13 +142,14 @@ public class UserControlleur {
 			}
 		}
 		return "user-form/user-view";
-		
 	}
+	
 	
 	@GetMapping("/userForm/cancel")
 	public String cancelEditUser(ModelMap model) {
 		return "redirect:/userForm";
 	}
+	
 	
 	@GetMapping("/deleteUser/{id}")
 	public String deleteUser(Model model, @PathVariable(name="id")Long id) {
@@ -157,6 +161,7 @@ public class UserControlleur {
 		}
 		return userForm(model);
 	}
+	
 	
 	@PostMapping("/editUser/changePassword")
 	public ResponseEntity postEditUseChangePassword(@Valid @RequestBody ChangePassword form, Errors errors) {
@@ -175,4 +180,7 @@ public class UserControlleur {
 		return ResponseEntity.ok("Success");
 	}
 	
+	
+
+
 }

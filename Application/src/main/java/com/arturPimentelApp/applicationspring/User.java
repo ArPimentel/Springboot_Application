@@ -17,11 +17,12 @@ public class User implements Serializable {
 
     @Column
     @NotBlank
-    @Size(min=5, max=8, message= "La taille ne répond pas aux exigences.")
+    @Size(min=4, max=12, message= "La taille ne répond pas aux exigences.")
     private String firstName;
 
     @Column
     @NotBlank
+    @Size(min=4, max=12, message= "La taille ne répond pas aux exigences.")
     private String lastName;
 
     @Column/*(unique = true)*/
@@ -34,6 +35,7 @@ public class User implements Serializable {
 
     @Column
     @NotBlank
+    @Size(min=4, max=12, message= "La taille minimal doit être entre 4 et 12 caracters.")
     private String password;
 
     @Transient
@@ -204,7 +206,4 @@ public class User implements Serializable {
 			return false;
 		return true;
 	}
-
-   
-
 }

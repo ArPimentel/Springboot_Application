@@ -1,0 +1,51 @@
+
+
+.animation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: flex-end;
+  background-color: black;
+  margin: 0;
+  padding-top: 0px;
+  
+
+}
+
+.logo {
+  margin: auto;
+}
+
+.vert {
+  -webkit-transform-origin: center bottom;
+  transform-origin: center bottom;
+}
+
+.hori {
+  -webkit-transform-origin: 0% 50%;
+  transform-origin: 0% 50%;
+}
+
+.diag-left {
+  -webkit-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+
+.diag-right {
+  -webkit-transform-origin: 100% 0%;
+  transform-origin: 100% 0%;
+  background-color:rgb(173, 0, 0);
+}
+
+.text-fills, .line, .katana, .stripes{
+  box-shadow:10px 10px 10px 10px red;
+  border-color: red;
+}
+.stripes path,
+.text-fills path,
+.katakana path,
+.line {
+  opacity: 0
+
+} 
+

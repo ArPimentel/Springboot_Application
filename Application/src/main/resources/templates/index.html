@@ -1,6 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
     <title>Ma premiere connexion</title>
 
     <!--JQUERY-->
@@ -27,22 +29,23 @@
                 </div>
                 <form class="col-12" th:action="@{/login}" method="post">
                     <div class="form-group" id="user-group">
+                      
                         <input type="text" class="form-control" placeholder="Prenom d'utilisateur" name="username"/>
                     </div>
                     <div class="form-group" id="contrasena-group">
                         <input type="password" class="form-control" placeholder="Mot de passe" name="password"/>
                     </div>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i>  Se connecter</button>
+                    <button type="submit" class="btn btn-primary" ><i class="fas fa-sign-in-alt"></i>  Se connecter</button>
                 </form>
                 <div class="col-12 forgot">
-                    <p><a href="#">Mot de passe oublié?</a></p>
-                    <p><a href="#" th:href="@{/signup}">Créer un utilisateur - S'enregistrer</a>
+                    <p><a href="#" > Mot de passe oubli�?</a></p>
+                    <p><a href="#" th:href="@{/signup}">Cr�er un utilisateur - S'enregistrer</a>
                 </div>
                 <div th:if="${param.error}" class="alert alert-danger" role="alert">
 		            Le pseudo et mot de passe ne correspondent pas.
 		        </div>
 		        <div th:if="${param.logout}" class="alert alert-success" role="alert">
-		            Vous avez été déconnecté.
+		            Vous avez �t� d�connect�.
 		        </div>
             </div>
         </div>

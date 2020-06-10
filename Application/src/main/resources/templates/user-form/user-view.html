@@ -55,11 +55,13 @@
 								<div class="tab-content" id="myTabContent">
 									<div class="tab-pane fade show" th:classappend=" ${listTab}" id="list" role="tabpanel"
 										aria-labelledby="list-tab">
+										
 										<div class="card">
+											
 											<div class="card-header">
 												<h4>Listes</h4>
 											</div>
-											<div class="card-body"></div>
+											
 											<div th:include="user-form/user-list.html" th:remove="tag"></div>
 										</div>
 									</div>
@@ -69,7 +71,7 @@
 											<div class="card-header">
 												<h4>Informations d'utilisateur</h4>
 											</div>
-											<div class="card-body"></div>
+											
 											<div th:include="user-form/user-form.html" th:remove="tag"></div>
 										</div>
 									</div>
